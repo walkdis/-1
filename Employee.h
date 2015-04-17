@@ -20,9 +20,9 @@ class Employee {
   Employee();
   Employee(const string&, const string&, const bool, const double);
   void ChD(const string&);
-  Employee(double);
-  Employee operator -(const double);
-  Employee operator +(const double);
+  explicit Employee(double k);
+  double operator -(const double);
+  double operator +(const double);
   friend ostream& operator<<(ostream&, const Employee&);
   ~Employee();
   string GetSur() const;

@@ -6,14 +6,16 @@
 #include <string>
 #include "AlrExist.h"
 #include "DoNotEx.h"
+#include <list>
 
 
-using ::std::string;
-using ::std::cin;
-using ::std::cout;
-using ::std::ostream;
-using ::std::endl;
-using ::std::exception;
+using std::string;
+using std::cin;
+using std::cout;
+using std::ostream;
+using std::endl;
+using std::exception;
+using std::list;
 
 class Department :public Employee {
  private:
@@ -21,7 +23,7 @@ class Department :public Employee {
   int amount;
   double budget;
   bool BadChief;
-  Employee *pList;
+  list<Employee> pList;
 
  public:
   Department();
@@ -31,10 +33,10 @@ class Department :public Employee {
   const string&, const bool, const bool, const double);
   void AddEmployee(const Employee&, const bool);
   void GivePR();
-  Employee findS(const string&);
+  Employee& findS(const string&);
   void printDepartment();
   void delAllDepartment();
-  void KickOutEmployee(int);
+  void KickOutEmployee(int i);
   int findI(const string&);
   void remove(const Employee&);
   bool has(const Employee&);
@@ -49,5 +51,5 @@ class Department :public Employee {
   friend bool operator ==(Department, const Department);
   Department(const Department&);
   const Department& operator =(const Department&);
-  Employee Get(int);
+  Employee& Get(int i);
 };

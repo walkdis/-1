@@ -1,7 +1,6 @@
 // Copyright 2015 <Anna Simakova>
-#include "stdafx.h"
-#include <string>
 #include "Sotr.h"
+#include <string>
 
 
 Employee::Employee() {
@@ -21,10 +20,10 @@ Employee::Employee(double l) : salary(l) {}
 void Employee::ChD(const string& job) {
   this->job = job;
 }
-Employee Employee::operator-(const double k) {
+double Employee::operator-(const double k) {
   return (salary - k);
 }
-Employee Employee::operator+(const double k) {
+double Employee::operator+(const double k) {
   return (salary + k);
 }
 Employee::~Employee() {}

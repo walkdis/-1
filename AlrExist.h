@@ -3,11 +3,13 @@
 #include <exception>
 #include <string>
 
-using namespace std;
+using ::std::string;
+using ::std::exception;
 
-class EmployeeAlrExist :public exception{
-	string qq;
-public:
-	EmployeeAlrExist(const string&);
-	const char* what() const noexcept(true);
+class EmployeeAlrExist :public exception {
+  string qq;
+
+ public:
+  explicit EmployeeAlrExist(const string&);
+  const char* what() const noexcept(true);
 };

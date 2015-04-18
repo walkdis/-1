@@ -1,5 +1,5 @@
 // Copyright 2015 <Anna Simakova>
-#include "SP.h"
+#include "Department.h"
 #include <stdio.h>
 #include <iostream>
 #include <string>

@@ -1,6 +1,6 @@
 // Copyright 2015 <Anna Simakova>
 #pragma once
-#include "Employee.h"
+#include "Sotr.h"
 #include <stdio.h>
 #include <iostream>
 #include <string>
@@ -17,7 +17,7 @@ using std::endl;
 using std::exception;
 using std::list;
 
-class Department :public Employee {
+class Department {
  private:
   string title;
   int amount;
@@ -28,28 +28,25 @@ class Department :public Employee {
  public:
   Department();
   ~Department();
-  Department(const string&, const int, const double);
-  void CreateEmployee(const string&,
-  const string&, const bool, const bool, const double);
-  void AddEmployee(const Employee&, const bool);
-  void GivePR();
-  Employee& findS(const string&);
+  Department(const string& surname, int amount, double budget);
+  void AddEmployee(const Employee& employee, bool bad);
+  Employee& findS(const string& surname);
   void printDepartment();
   void delAllDepartment();
-  void KickOutEmployee(int i);
-  int findI(const string&);
-  void remove(const Employee&);
-  bool has(const Employee&);
+  void KickOutEmployee(int iter);
+  int findI(const string& surname);
+  void remove(const Employee& employee);
+  bool has(const Employee& employee);
   string GetTitle() const;
-  void SetTitle(const string&);
+  void SetTitle(const string& title);
   int GetAmount() const;
-  void SetAmount(const int);
+  void SetAmount(const int amount);
   double GetBudg() const;
-  void SetBudg(const double);
+  void SetBudg(const double budget);
   bool IsChiefBad() const;
-  void SetBadChief(const bool);
-  friend bool operator ==(Department, const Department);
-  Department(const Department&);
-  const Department& operator =(const Department&);
-  Employee& Get(int i);
+  void SetBadChief(const bool bad);
+  friend const bool operator ==(Department departm1, const Department departm2);
+  Department(const Department& departm);
+  const Department& operator =(const Department& departm);
+  Employee& Get(int iter);
 };

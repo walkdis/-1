@@ -1,12 +1,15 @@
 // Copyright 2015 <Anna Simakova>
-#include "DoNotEx.h"
+#pragma once
+#include <exception>
 #include <string>
 
+using ::std::string;
+using ::std::exception;
 
+class EmployeeDoNotExist:public exception {
+    string msg;
 
-EmployeeDoNotExist::EmployeeDoNotExist(const string& name) :exception() {
-  qq = "Sotr: " + name + " do not exist";
-}
-const char * EmployeeDoNotExist::what() const noexcept(true) {
-  return qq.c_str();
-}
+ public:
+    explicit EmployeeDoNotExist(const string&);
+    const char* what() const noexcept(true);
+};

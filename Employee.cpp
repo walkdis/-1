@@ -1,88 +1,77 @@
 // Copyright 2015 <Anna Simakova>
-#include "Employee.h"
+#include "Sotr.h"
 #include <string>
 
 
 Employee::Employee() {
-  sur = "";
-  job = "";
-  rab = true;
+    sur = "";
+    job = "";
+    rab = true;
 }
-Employee::Employee(const string& ty, const string& dol,
-const bool qw, const double lop) {
-  sur = ty;
-  job = dol;
-  chief = qw;
-  salary = lop;
-  rab = true;
+Employee::Employee(const string& surname, const string& role,
+bool shef, double slr) {
+    sur = surname;
+    job = role;
+    chief = shef;
+    salary = slr;
+    rab = true;
 }
 Employee::Employee(double l) : salary(l) {}
 void Employee::ChD(const string& job) {
-  this->job = job;
+    this->job = job;
 }
-double Employee::operator-(const double k) {
-  return (salary - k);
+double Employee::operator-(const double amnt) {
+    return (salary - amnt);
 }
-double Employee::operator+(const double k) {
-  return (salary + k);
+double Employee::operator+(const double amnt) {
+    return (salary + amnt);
 }
 Employee::~Employee() {}
 
 string Employee::GetSur() const {
-  return sur;
+    return sur;
 }
-void Employee::SetSur(const string& as) {
-  sur = as;
+void Employee::SetSur(const string& surname) {
+    sur = surname;
 }
 string Employee::GetJob() const {
-  return job;
+    return job;
 }
-void Employee::SetJob(const string& as) {
-  job = as;
+void Employee::SetJob(const string& role) {
+    job = role;
 }
 double Employee::GetSalary() const {
-  return salary;
+    return salary;
 }
-void Employee::SetSalary(const double as) {
-  salary = as;
-}
-double Employee::GetPrem() const {
-  return prem;
-}
-void Employee::SetPrem(const double as) {
-  prem = as;
+void Employee::SetSalary(const double salar) {
+    salary = salar;
 }
 bool Employee::IsChief() const {
-  return chief;
+    return chief;
 }
-void Employee::SetChief(const bool as) {
-  chief = as;
+void Employee::SetChief(const bool shef) {
+    chief = shef;
 }
 bool Employee::GetRab() const {
-  return rab;
+    return rab;
 }
-void Employee::SetRab(const bool as) {
-  rab = as;
+void Employee::SetRab(const bool rb) {
+    rab = rb;
 }
-Employee::Employee(const Employee& b) {
-  sur = b.sur;
-  job = b.job;
-  salary = b.salary;
-  prem = b.prem;
-  rab = b.rab;
-  chief = b.chief;
+Employee::Employee(const Employee& empl) {
+    sur = empl.sur;
+    job = empl.job;
+    salary = empl.salary;
+    rab = empl.rab;
+    chief = empl.chief;
 }
-bool operator ==(Employee df, const Employee qw) {
-  if (df == qw)
-  return true;
-  else
-  return false;
+bool operator ==(Employee empl1, const Employee empl2) {
+    return empl1 == empl2;
 }
-void Employee::operator =(const Employee& b) {
-  sur = b.sur;
-  job = b.job;
-  salary = b.salary;
-  prem = b.prem;
-  rab = b.rab;
-  chief = b.chief;
+void Employee::operator =(const Employee& empl) {
+    sur = empl.sur;
+    job = empl.job;
+    salary = empl.salary;
+    rab = empl.rab;
+    chief = empl.chief;
 }

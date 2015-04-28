@@ -6,10 +6,10 @@
 using ::std::string;
 using ::std::exception;
 
-class EmployeeAlrExist :public exception {
-  string qq;
+class EmployeeAlrExist:public exception {
+    string msg;
 
  public:
-  explicit EmployeeAlrExist(const string&);
-  const char* what() const noexcept(true);
+    explicit EmployeeAlrExist(const string& name);
+    const char* what() const noexcept(true);
 };

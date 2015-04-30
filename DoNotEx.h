@@ -10,6 +10,6 @@ class EmployeeDoNotExist:public exception {
     string msg;
 
  public:
-    explicit EmployeeDoNotExist(const string&);
+    explicit EmployeeDoNotExist(const string& name);
     const char* what() const noexcept(true);
 };

@@ -40,12 +40,12 @@ class Department {
   string GetTitle() const;
   void SetTitle(const string& title);
   int GetAmount() const;
-  void SetAmount(const int amount);
+  void SetAmount(int amount);
   double GetBudg() const;
-  void SetBudg(const double budget);
+  void SetBudg(double budget);
   bool IsChiefBad() const;
-  void SetBadChief(const bool bad);
-  friend const bool operator ==(Department departm1, const Department departm2);
+  void SetBadChief(bool bad);
+  friend const bool operator ==(Department& departm1, const Department& departm2);
   Department(const Department& departm);
   const Department& operator =(const Department& departm);
   Employee& Get(int iter);

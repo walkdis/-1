@@ -20,8 +20,8 @@ class Employee {
   Employee(const string& surname, const string& job, bool chief, double salary);
   void ChD(const string& job);
   explicit Employee(double amount);
-  double operator -(const double amount);
-  double operator +(const double amount);
+  double operator -(double amount);
+  double operator +(double amount);
   friend ostream& operator<<(ostream& stream, const Employee& empl);
   ~Employee();
   string GetSur() const;
@@ -29,12 +29,12 @@ class Employee {
   string GetJob() const;
   void SetJob(const string& job);
   double GetSalary() const;
-  void SetSalary(const double salary);
+  void SetSalary(double salary);
   bool IsChief() const;
-  void SetChief(const bool chief);
+  void SetChief(bool chief);
   bool GetRab() const;
-  void SetRab(const bool rab);
+  void SetRab(bool rab);
   Employee(const Employee& empl);
-  friend bool operator ==(Employee empl1, const Employee empl2);
+  friend bool operator ==(Employee& empl1, const Employee& empl2);
   void operator =(const Employee& empl);
 };

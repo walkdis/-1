@@ -1,5 +1,5 @@
 // Copyright 2015 <Anna Simakova>
-#include "Sotr.h"
+#include "Employee.h"
 #include "Department.h"
 #include <cstdlib>
 #include <exception>

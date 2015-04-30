@@ -20,10 +20,10 @@ Employee::Employee(double l) : salary(l) {}
 void Employee::ChD(const string& job) {
     this->job = job;
 }
-double Employee::operator-(const double amnt) {
+double Employee::operator-(double amnt) {
     return (salary - amnt);
 }
-double Employee::operator+(const double amnt) {
+double Employee::operator+(double amnt) {
     return (salary + amnt);
 }
 Employee::~Employee() {}
@@ -43,19 +43,19 @@ void Employee::SetJob(const string& role) {
 double Employee::GetSalary() const {
     return salary;
 }
-void Employee::SetSalary(const double salar) {
+void Employee::SetSalary(double salar) {
     salary = salar;
 }
 bool Employee::IsChief() const {
     return chief;
 }
-void Employee::SetChief(const bool shef) {
+void Employee::SetChief(bool shef) {
     chief = shef;
 }
 bool Employee::GetRab() const {
     return rab;
 }
-void Employee::SetRab(const bool rb) {
+void Employee::SetRab(bool rb) {
     rab = rb;
 }
 Employee::Employee(const Employee& empl) {
@@ -65,7 +65,7 @@ Employee::Employee(const Employee& empl) {
     rab = empl.rab;
     chief = empl.chief;
 }
-bool operator ==(Employee empl1, const Employee empl2) {
+bool operator ==(Employee& empl1, const Employee& empl2) {
     return empl1 == empl2;
 }
 void Employee::operator =(const Employee& empl) {

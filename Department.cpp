@@ -43,7 +43,7 @@ void Department::KickOutEmployee(int iter) {
 Employee& Department::findS(const string& surn) {
     int i = 0;
     for (list<Employee>::iterator it = pList.begin(); it != pList.end(); ++it) {
-        if ((*it).GetSur() == surn)
+        if (it->GetSur() == surn)
            return (*it);
         if (i == amount)
             throw EmployeeDoNotExist(surn);
@@ -53,7 +53,7 @@ Employee& Department::findS(const string& surn) {
 int Department::findI(const string& surn) {
     int i = 0;
     for (list<Employee>::iterator it = pList.begin(); it != pList.end(); ++it) {
-        if ((*it).GetSur() == surn)
+        if (it->GetSur() == surn)
         return i;
         i++;
     }
@@ -61,8 +61,8 @@ int Department::findI(const string& surn) {
 void Department::printDepartment() {
     cout << title << " ";
     for (list<Employee>::iterator it = pList.begin(); it != pList.end(); ++it) {
-        cout << (*it).GetSur() << " " <<
-        (*it).GetJob() << " " << (*it).GetSalary();
+        cout << it->GetSur() << " " <<
+            it->GetJob() << " " << it->GetSalary();
     }
 }
 void Department::delAllDepartment() {
@@ -83,19 +83,19 @@ void Department::SetTitle(const string& tit) {
 int Department::GetAmount() const {
     return amount;
 }
-void Department::SetAmount(const int am) {
+void Department::SetAmount(int am) {
     amount = am;
 }
 double Department::GetBudg() const {
     return budget;
 }
-void Department::SetBudg(const double budg) {
+void Department::SetBudg(double budg) {
     budget = budg;
 }
 bool Department::IsChiefBad() const {
     return BadChief;
 }
-void Department::SetBadChief(const bool BCH) {
+void Department::SetBadChief(bool BCH) {
     BadChief = BCH;
 }
 void Department::remove(const Employee& empl) {
@@ -107,7 +107,7 @@ bool Department::has(const Employee& empl) {
         return true;
     return false;
 }
-const bool operator ==(Department depart1, const Department depart2) {
+const bool operator ==(Department& depart1, const Department& depart2) {
     return (depart1 == depart2);
 }
 Department::Department(const Department& depart1) {

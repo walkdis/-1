@@ -1,6 +1,6 @@
 // Copyright 2015 <Anna Simakova>
 #pragma once
-#include "Sotr.h"
+#include "Employee.h"
 #include <stdio.h>
 #include <iostream>
 #include <string>

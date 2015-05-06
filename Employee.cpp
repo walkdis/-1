@@ -9,7 +9,7 @@ Employee::Employee() {
     rab = true;
 }
 Employee::Employee(const string& surname, const string& role,
-bool shef, double slr) {
+    bool shef, double slr) {
     sur = surname;
     job = role;
     chief = shef;
@@ -65,13 +65,16 @@ Employee::Employee(const Employee& empl) {
     rab = empl.rab;
     chief = empl.chief;
 }
-bool operator ==(Employee& empl1, const Employee& empl2) {
-    return empl1 == empl2;
-}
+
 void Employee::operator =(const Employee& empl) {
     sur = empl.sur;
     job = empl.job;
     salary = empl.salary;
     rab = empl.rab;
     chief = empl.chief;
+}
+ostream& operator<<(ostream& stream, const Employee& empl) {
+    stream << "Surname: " << empl.sur <<
+        "Job title: " << empl.job << "Salary: " << empl.salary << endl;
+    return stream;
 }

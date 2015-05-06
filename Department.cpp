@@ -3,29 +3,26 @@
 #include <stdio.h>
 #include <iostream>
 #include <string>
+#include <algorithm>
 #include <list>
 
 Department::Department() {
     title = "";
-    amount = 0;
     budget = 0.0;
     BadChief = true;
 }
 Department::~Department() {
     delAllDepartment();
 }
-Department::Department(const string& name,
-int amout, double budg) {
+Department::Department(const string& name, double budg) {
     title = name;
-    amount = amout;
     budget = budg;
 }
 void Department::AddEmployee(const Employee& empl,
-bool bad) {
+    bool bad) {
     if (has(empl)) {
         throw EmployeeAlrExist(empl.GetSur());
     } else {
-        amount += 1;
         pList.push_back(empl);
         BadChief = bad;
     }
@@ -38,23 +35,19 @@ void Department::KickOutEmployee(int iter) {
         }
         g++;
     }
-    amount -= 1;
 }
 Employee& Department::findS(const string& surn) {
-    int i = 0;
     for (list<Employee>::iterator it = pList.begin(); it != pList.end(); ++it) {
         if (it->GetSur() == surn)
-           return (*it);
-        if (i == amount)
-            throw EmployeeDoNotExist(surn);
-        i++;
+            return (*it);
     }
+     throw EmployeeDoNotExist(surn);
 }
 int Department::findI(const string& surn) {
     int i = 0;
     for (list<Employee>::iterator it = pList.begin(); it != pList.end(); ++it) {
         if (it->GetSur() == surn)
-        return i;
+            return i;
         i++;
     }
 }
@@ -69,11 +62,6 @@ void Department::delAllDepartment() {
     pList.clear();
 }
 
-ostream& operator<<(ostream& stream, const Employee& empl) {
-    stream << "Surname: " << empl.sur <<
-    "Job title: " << empl.job << "Salary: " << empl.salary << endl;
-    return stream;
-}
 string Department::GetTitle() const {
     return title;
 }
@@ -81,10 +69,7 @@ void Department::SetTitle(const string& tit) {
     title = tit;
 }
 int Department::GetAmount() const {
-    return amount;
-}
-void Department::SetAmount(int am) {
-    amount = am;
+    return pList.size();
 }
 double Department::GetBudg() const {
     return budget;
@@ -99,27 +84,21 @@ void Department::SetBadChief(bool BCH) {
     BadChief = BCH;
 }
 void Department::remove(const Employee& empl) {
-    delete &empl;
+    auto it = find(pList.begin(), pList.end(), empl);
+    pList.erase(it);
 }
 bool Department::has(const Employee& empl) {
-  for (list<Employee>::iterator it = pList.begin(); it != pList.end(); ++it)
-      if ((*it) == empl)
-        return true;
-    return false;
-}
-const bool operator ==(Department& depart1, const Department& depart2) {
-    return (depart1 == depart2);
+    auto it = find (pList.begin(), pList.end(), empl);
+    return it != pList.end();
 }
 Department::Department(const Department& depart1) {
     title = depart1.title;
-    amount = depart1.amount;
     budget = depart1.budget;
     BadChief = depart1.BadChief;
     pList = depart1.pList;
 }
-const Department& Department::operator =(const Department& depart1) {
+void Department::operator =(const Department& depart1) {
     title = depart1.title;
-    amount = depart1.amount;
     budget = depart1.budget;
     BadChief = depart1.BadChief;
     pList = depart1.pList;
@@ -132,4 +111,5 @@ Employee& Department::Get(int iter) {
         }
         g++;
     }
+    throw EmployeeDoNotExist("");
 }

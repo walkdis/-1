@@ -21,7 +21,7 @@ int main() {
     cin >> cmnd;
     cout << "How much money is allocated to the department?\n";
     cin >> red;
-    Department *department = new Department(cmd, cmnd, red);
+    Department *department = new Department(cmd, red);
     for (int i = 0; i < cmnd; i++) {
         cout << "Enter the name, title (enter leadership as Chief) ";
         cout << "and the salary of the employee\n";
@@ -33,9 +33,9 @@ int main() {
             char c;
             cin >> c;
             if (c == 'Y')
-            bad = true;
+                bad = true;
             else
-            bad = false;
+                bad = false;
         } else {
             chief = false;
         }
@@ -76,7 +76,7 @@ int main() {
                 l.operator+(k);
             }
             if (k == 5)
-            getline(cin, jt);
+                getline(cin, jt);
             l.ChD(jt);
         }
         if (k == 7) {
@@ -90,9 +90,9 @@ int main() {
                 char c;
                 cin >> c;
                 if (c == 'Y')
-                bad = true;
+                    bad = true;
                 else
-                bad = false;
+                    bad = false;
             } else { chief = false; }
             cin >> paym;
             Employee empl(snm, jt, chief, paym);

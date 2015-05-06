@@ -88,7 +88,7 @@ void Department::remove(const Employee& empl) {
     pList.erase(it);
 }
 bool Department::has(const Employee& empl) {
-    auto it = find (pList.begin(), pList.end(), empl);
+    auto it = find(pList.begin(), pList.end(), empl);
     return it != pList.end();
 }
 Department::Department(const Department& depart1) {

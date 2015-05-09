@@ -78,3 +78,7 @@ ostream& operator<<(ostream& stream, const Employee& empl) {
         "Job title: " << empl.job << "Salary: " << empl.salary << endl;
     return stream;
 }
+bool operator ==(const Employee& empl1, const Employee& empl2) {
+    return ((empl1.sur == empl2.sur)&(empl1.job == empl2.job)&
+        (empl1.salary == empl2.salary)&(empl1.chief == empl2.chief));
+}

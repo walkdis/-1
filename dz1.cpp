@@ -13,7 +13,7 @@ int main() {
     bool chief, bad = false;
     int cmnd, k = 0;
     double red, paym;
-    Employee *employee = new Employee();
+    Employee employee = Employee();
     cout << "You must create a department. enter the parameters:\n";
     cout << "Name department\n";
     cin >> cmd;
@@ -21,7 +21,7 @@ int main() {
     cin >> cmnd;
     cout << "How much money is allocated to the department?\n";
     cin >> red;
-    Department *department = new Department(cmd, red);
+    Department department = Department(cmd, red);
     for (int i = 0; i < cmnd; i++) {
         cout << "Enter the name, title (enter leadership as Chief) ";
         cout << "and the salary of the employee\n";
@@ -40,11 +40,11 @@ int main() {
             chief = false;
         }
         cin >> paym;
-        employee->SetSur(snm);
-        employee->SetJob(jt);
-        employee->SetChief(chief);
-        employee->SetSalary(paym);
-        department->AddEmployee(*employee, bad);
+        employee.SetSur(snm);
+        employee.SetJob(jt);
+        employee.SetChief(chief);
+        employee.SetSalary(paym);
+        department.AddEmployee(employee, bad);
     }
     do {
         cout << "What would you like to do more?\n";
@@ -58,11 +58,7 @@ int main() {
         if ((k > 2) & (k < 7)) {
             cout << "Enter the name of the employee\n";
             cin >> cmd;
-            Employee l = department->findS(cmd);
-            if (department == NULL) {
-                cout << "Error. An employee can not be found!\n";
-                break;
-            }
+            Employee l = department.findS(cmd);
             if (k == 3) {
                 double k;
                 cout << "How much downgrade?\n";
@@ -97,16 +93,16 @@ int main() {
             cin >> paym;
             Employee empl(snm, jt, chief, paym);
             try {
-                department->AddEmployee(empl, bad);
+                department.AddEmployee(empl, bad);
             }
             catch (exception& e) {
                 cout << e.what() << endl;
             }
         }
         if (k == 8)
-            department->KickOutEmployee(department->findI(cmd));
+            department.KickOutEmployee(department.findI(cmd));
         if (k == 9)
-            department->printDepartment();
+            department.printDepartment();
     } while (k != 0);
     system("pause");
     return 0;

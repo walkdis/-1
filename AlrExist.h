@@ -11,5 +11,5 @@ class EmployeeAlrExist:public exception {
 
  public:
     explicit EmployeeAlrExist(const string& name);
-    const char* what() const noexcept(true);
+    const char* what() const throw();
 };

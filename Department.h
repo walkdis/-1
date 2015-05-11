@@ -17,6 +17,7 @@ using std::endl;
 using std::exception;
 using std::list;
 using std::find;
+using std::advance;
 
 class Department {
  private:
@@ -37,7 +38,7 @@ class Department {
     int findI(const string& surname);
     void remove(const Employee& employee);
     bool has(const Employee& employee);
-    string GetTitle() const;
+    const string& GetTitle();
     void SetTitle(const string& title);
     int GetAmount() const;
     double GetBudg() const;
@@ -45,6 +46,7 @@ class Department {
     bool IsChiefBad() const;
     void SetBadChief(bool bad);
     Department(const Department& departm);
-    void operator =(const Department& departm);
+    const Department& operator =(const Department& department);
     Employee& Get(int iter);
+    bool operator ==(const Department& department);
 };

@@ -3,6 +3,8 @@
 #include <stdio.h>
 #include <iostream>
 #include <string>
+#include "AlrExist.h"
+#include "DoNotEx.h"
 using ::std::string;
 using ::std::cin;
 using ::std::cout;
@@ -37,6 +39,6 @@ class Employee {
     bool GetRab() const;
     void SetRab(bool rab);
     Employee(const Employee& empl);
-    void operator =(const Employee& empl);
+    const Employee& operator =(const Employee& empl);
     bool operator ==(const Employee& empl);
 };

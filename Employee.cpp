@@ -66,19 +66,22 @@ Employee::Employee(const Employee& empl) {
     chief = empl.chief;
 }
 
-void Employee::operator =(const Employee& empl) {
-    sur = empl.sur;
-    job = empl.job;
-    salary = empl.salary;
-    rab = empl.rab;
-    chief = empl.chief;
+const Employee& Employee::operator =(const Employee& empl) {
+    if (this != &empl) {
+        sur = empl.sur;
+        job = empl.job;
+        salary = empl.salary;
+        rab = empl.rab;
+        chief = empl.chief;
+    }
+        return (*this);
 }
 ostream& operator<<(ostream& stream, const Employee& empl) {
     stream << "Surname: " << empl.sur <<
         "Job title: " << empl.job << "Salary: " << empl.salary << endl;
     return stream;
 }
-bool operator ==(const Employee& empl1, const Employee& empl2) {
-    return ((empl1.sur == empl2.sur)&(empl1.job == empl2.job)&
-        (empl1.salary == empl2.salary)&(empl1.chief == empl2.chief));
+bool Employee::operator ==(const Employee& empl) {
+    return (((*this).sur == empl.sur) && ((*this).job == empl.job) &&
+        ((*this).salary == empl.salary) && ((*this).chief == empl.chief));
 }

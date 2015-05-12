@@ -1,4 +1,5 @@
 // Copyright 2015 <Anna Simakova>
+#include "stdafx.h"
 #include "Department.h"
 #include <stdio.h>
 #include <iostream>
@@ -104,12 +105,13 @@ const Department& Department::operator =(const Department& depart) {
     return (*this);
 }
 Employee& Department::Get(int iter) {
+    if ((pList.begin() == pList.end()) || (iter > pList.size()) || (iter < 0))
+        throw EmployeeDoNotExist("");
     list<Employee>::iterator it = pList.begin();
     advance(it, iter);
     return (*it);
-    throw EmployeeDoNotExist("");
 }
-bool Department::operator ==(const Department& department) {
+const bool Department::operator ==(const Department& department) {
     return (((*this).title == department.title) &&
         ((*this).budget == department.budget) &&
         ((*this).BadChief == department.BadChief)

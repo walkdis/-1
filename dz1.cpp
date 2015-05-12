@@ -23,10 +23,12 @@ int main() {
     cin >> red;
     Department department = Department(cmd, red);
     for (int i = 0; i < cmnd; i++) {
-        cout << "Enter the name, title (enter leadership as Chief) ";
-        cout << "and the salary of the employee\n";
+        cout << "Enter the name\n";
         getline(cin, snm);
+        employee.SetSur(snm);
+        cout << "Enter title(enter leadership as Chief)\n";
         getline(cin, jt);
+        employee.SetJob(jt);
         if (jt == "Chief)") {
             chief = true;
             cout << "Chief bad? (Y or N)\n";
@@ -39,9 +41,8 @@ int main() {
         } else {
             chief = false;
         }
+        cout << "Enter the salary of the employee\n";
         cin >> paym;
-        employee.SetSur(snm);
-        employee.SetJob(jt);
         employee.SetChief(chief);
         employee.SetSalary(paym);
         department.AddEmployee(employee, bad);
@@ -53,7 +54,7 @@ int main() {
         cout << "Add employee in this department - enter 7\n";
         cout << "remove the employee from base - enter 8, ";
         cout << "see Front - enter 9\n";
-        cout << "if you want to exit the program, press 0";
+        cout << "if you want to exit the program, press 0\n";
         cin >> k;
         if ((k > 2) & (k < 7)) {
             cout << "Enter the name of the employee\n";

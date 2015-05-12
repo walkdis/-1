@@ -40,5 +40,5 @@ class Employee {
     void SetRab(bool rab);
     Employee(const Employee& empl);
     const Employee& operator =(const Employee& empl);
-    bool operator ==(const Employee& empl);
+    bool operator ==(const Employee& empl) const;
 };

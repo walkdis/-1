@@ -1,5 +1,4 @@
 // Copyright 2015 <Anna Simakova>
-#include "stdafx.h"
 #include "DoNotEx.h"
 #include <string>
 

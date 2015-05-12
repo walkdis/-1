@@ -48,5 +48,5 @@ class Department {
     Department(const Department& departm);
     const Department& operator =(const Department& department);
     Employee& Get(int iter);
-    bool operator ==(const Department& department);
+    const bool operator ==(const Department& department);
 };

@@ -1,12 +1,11 @@
 // Copyright 2015 <Anna Simakova>
+#include "stdafx.h"
 #include "DoNotEx.h"
 #include <string>
-
-
 
 EmployeeDoNotExist::EmployeeDoNotExist(const string& name) :exception() {
     msg = "Sotr: " + name + " do not exist";
 }
-const char * EmployeeDoNotExist::what() const noexcept(true) {
+const char * EmployeeDoNotExist::what() const throw() {
     return msg.c_str();
 }

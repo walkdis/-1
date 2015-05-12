@@ -105,7 +105,7 @@ const Department& Department::operator =(const Department& depart) {
     return (*this);
 }
 Employee& Department::Get(int iter) {
-    if ((pList.begin() == pList.end()) || (iter > pList.size()) || (iter < 0))
+    if ((pList.begin() == pList.end()) || (iter > pList.size()) || (iter <= 0))
         throw EmployeeDoNotExist("");
     list<Employee>::iterator it = pList.begin();
     advance(it, iter);
